@@ -1,2 +1,2 @@
 # ZXP24-PC-GUI
-PC GUI updated to the new ZXP24 protocol.
+PC GUI (ZXP24) used as basis for KWP-Client PC GUI
