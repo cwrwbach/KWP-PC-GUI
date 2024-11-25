@@ -5,7 +5,7 @@
 #include <math.h>
 #include <alsa/asoundlib.h>
 
-#define SERV_ADDR "192.168.2.232" //Local loopback for development
+#define SERV_ADDR "192.168.2.2" //Local loopback for development
 //#define SERV_ADDR "192.168.2.32"
 //#define SERV_ADDR "192.168.2.222"
 //#define SERV_ADDR "192.168.2.223"

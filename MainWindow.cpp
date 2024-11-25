@@ -42,13 +42,15 @@ connect(ui->dsb, SIGNAL(clicked()), this, SLOT(set_dsb()));
 connect(ui->usb, SIGNAL(clicked()), this, SLOT(set_usb()));
 connect(ui->lsb, SIGNAL(clicked()), this, SLOT(set_lsb()));
 
+/*
 connect(ui->sr0, SIGNAL(clicked()), this, SLOT(set_sr0()));
 connect(ui->sr1, SIGNAL(clicked()), this, SLOT(set_sr1()));
 connect(ui->sr2, SIGNAL(clicked()), this, SLOT(set_sr2()));
 connect(ui->sr3, SIGNAL(clicked()), this, SLOT(set_sr3()));
 connect(ui->sr4, SIGNAL(clicked()), this, SLOT(set_sr4()));
 connect(ui->sr5, SIGNAL(clicked()), this, SLOT(set_sr5()));
-
+*/
+/*
 connect(ui->ar0, SIGNAL(clicked()), this, SLOT(set_ar0()));
 connect(ui->ar1, SIGNAL(clicked()), this, SLOT(set_ar1()));
 connect(ui->ar2, SIGNAL(clicked()), this, SLOT(set_ar2()));
@@ -69,7 +71,7 @@ connect(ui->UC2, SIGNAL(clicked(bool )), this, SLOT(set_uc2(bool)));
 connect(ui->UC3, SIGNAL(clicked(bool )), this, SLOT(set_uc3(bool)));
 
 connect(ui->BBG, SIGNAL(valueChanged(int)), this, SLOT(set_bbg(int)));
-
+*/
 
 
 //connect(ui->ip0, SIGNAL(clicked()), this, SLOT(set_ip0()));
