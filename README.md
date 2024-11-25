@@ -1,2 +1,2 @@
-# KWP-PC-GUI
-Desktop GUI Client for KWP UDP stream
+# ZXP24-PC-GUI
+PC GUI updated to the new ZXP24 protocol.
