@@ -21,9 +21,11 @@ INCLUDEPATH += .
 
 INCLUDEPATH += /usr/include/qt5/QtWidgets /usr/include/qt5/qwt/
 
-LIBS += -lpthread -lm -lmirsdrapi-rsp -lfftw3
-LIBS += -lluaradio -lluajit-5.1 -Wl,-E
-LIBS += -lliquid -lasound 
+LIBS += -lpthread -lm 
+#-lmirsdrapi-rsp -lfftw3
+#LIBS += -lluaradio -lluajit-5.1 -Wl,-E
+LIBS += -lliquid 
+#-lasound 
 #LIBS += -L"C:\qwt2\qwt-6.1.4\lib"-lqwt
 
 QMAKE_CXXFLAGS_WARN_OFF -= -Wunused-parameter

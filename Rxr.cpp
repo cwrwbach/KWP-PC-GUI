@@ -3,9 +3,9 @@
 #include <QDebug>
 #include <unistd.h>
 #include <math.h>
-#include <alsa/asoundlib.h>
+//#include <alsa/asoundlib.h>
 
-#define SERV_ADDR "192.168.2.2" //Local loopback for development
+#define SERV_ADDR "192.168.2.36" //Local loopback for development
 //#define SERV_ADDR "192.168.2.32"
 //#define SERV_ADDR "192.168.2.222"
 //#define SERV_ADDR "192.168.2.223"
@@ -67,11 +67,11 @@ unsigned char id_type;
 QByteArray datagram;   
 QHostAddress sender;
 u_int16_t port;
-char audio_pak[1024];
+//char audio_pak[1024];
 
 while (socket->hasPendingDatagrams())
     {
-    size = socket->pendingDatagramSize(); 
+    size = socket->pendingDatagramSize(); size=size;
     datagram.resize(socket->pendingDatagramSize());
     socket->readDatagram(datagram.data(),datagram.size(),&sender,&port);
 
@@ -84,10 +84,11 @@ while (socket->hasPendingDatagrams())
 
        //FIXME look at the packet lenth stuff..
         for(int i=0; i<1024;i++)
-            fft_video_buf[i] = (uint8_t) datagram[i+HEADER_LEN];
+            //fft_video_buf[i] = (((int) datagram[i+HEADER_LEN]) *2) - 200; //uint8_t
+            fft_video_buf[i] = ((int) datagram[i+HEADER_LEN]);
         stream_flag = true;
         }
-
+/*
     if(id_type == 0x69) //G711
         {
         //debug
@@ -105,24 +106,25 @@ while (socket->hasPendingDatagrams())
             usleep(1000);
             }
         }
+        */
     }   
 }
 
 void Rxr::setup_sound()
 {
-int err;
-int audio_sr = AUDIO_RATE;
+//int err;
+//int audio_sr = AUDIO_RATE;
 
-printf(" Setup sound device\n");
+//printf(" Setup sound device\n");
 
-strcpy(alsa_device,"default");
+//strcpy(alsa_device,"default");
 
 
-err = snd_pcm_open(&audio_device, alsa_device, SND_PCM_STREAM_PLAYBACK, SND_PCM_NONBLOCK);
-err=err; //0
+//err = snd_pcm_open(&audio_device, alsa_device, SND_PCM_STREAM_PLAYBACK, SND_PCM_NONBLOCK);
+//err=err; //0
 //printf("err %d %d\n",err,__LINE__);
-err = snd_pcm_set_params(audio_device,SND_PCM_FORMAT_A_LAW, SND_PCM_ACCESS_RW_INTERLEAVED,1,audio_sr,1,400000);
-err=err;
+//err = snd_pcm_set_params(audio_device,SND_PCM_FORMAT_A_LAW, SND_PCM_ACCESS_RW_INTERLEAVED,1,audio_sr,1,400000);
+//err=err;
  //latency in
 //printf("err %d %d\n",err,__LINE__);
 }

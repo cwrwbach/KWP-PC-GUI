@@ -110,7 +110,8 @@ if ((wide != 0) || (high != 0))
     for(int i=0; i<num_points;i++)
         {
         inbuf[i] = (float) trace_buf[i]; //trace_buf is our input data main
-        inbuf[i] *= -1; //units are half-dB
+        inbuf[i] = -500 + inbuf[i]*2;
+        //inbuf[i] *= -1; //units are half-dB
         }    
 
     int xmin,xmax;
@@ -123,7 +124,7 @@ if ((wide != 0) || (high != 0))
     left = 0; //FIXME FINDME FIXI
     for (i = left; i < wide; i++)
         {
-        int inx = 50+outbuf[i]; //100+trace_buf[i];
+        int inx = outbuf[i]; //100+trace_buf[i];
         painter_wf.setPen(QColor(turbo[inx][0],turbo[inx][1],turbo[inx][2]));
         painter_wf.drawPoint(i,0);
         }

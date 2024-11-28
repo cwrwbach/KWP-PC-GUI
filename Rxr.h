@@ -2,7 +2,7 @@
 
 #include <QMainWindow>
 #include <QUdpSocket>
-#include <alsa/asoundlib.h>
+//#include <alsa/asoundlib.h>
 
 #define FREQ 4
 #define SRATE 5
@@ -26,7 +26,7 @@ class Rxr : public QObject
 {
     Q_OBJECT
     QUdpSocket *socket = nullptr;
-    snd_pcm_t *audio_device;
+    //snd_pcm_t *audio_device;
     void setup_sound();
     char alsa_device[64];
 
