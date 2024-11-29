@@ -38,9 +38,14 @@ QObject::connect(ui->setupRsp, SIGNAL(clicked()), this, SLOT(hardware_setup()));
 connect(ui->freqCtrl, SIGNAL(newFrequency(qint64)), this, SLOT(setNewFrequency(qint64)));
 connect(ui->alpha_plotter, SIGNAL(newFrequency(qint64)), this, SLOT(setNewFrequency(qint64)));
 
-connect(ui->dsb, SIGNAL(clicked()), this, SLOT(set_dsb()));
-connect(ui->usb, SIGNAL(clicked()), this, SLOT(set_usb()));
-connect(ui->lsb, SIGNAL(clicked()), this, SLOT(set_lsb()));
+connect(ui->wf0, SIGNAL(clicked()), this, SLOT(set_wf0()));
+connect(ui->wf1, SIGNAL(clicked()), this, SLOT(set_wf1()));
+connect(ui->wf2, SIGNAL(clicked()), this, SLOT(set_wf2()));
+connect(ui->wf3, SIGNAL(clicked()), this, SLOT(set_wf3()));
+connect(ui->wf4, SIGNAL(clicked()), this, SLOT(set_wf4()));
+
+//connect(ui->usb, SIGNAL(clicked()), this, SLOT(set_usb()));
+//connect(ui->lsb, SIGNAL(clicked()), this, SLOT(set_lsb()));
 
 /*
 connect(ui->sr0, SIGNAL(clicked()), this, SLOT(set_sr0()));
@@ -81,8 +86,8 @@ connect(ui->BBG, SIGNAL(valueChanged(int)), this, SLOT(set_bbg(int)));
 //connect(ui->ip4, SIGNAL(clicked()), this, SLOT(set_ip4()));
 //connect(ui->ip5, SIGNAL(clicked()), this, SLOT(set_ip5()));
 
-connect(ui->rf_gain, SIGNAL(valueChanged(int)), this, SLOT(set_rfg(int)));
-connect(ui->af_gain, SIGNAL(valueChanged(int)), this, SLOT(set_afg(int)));
+//connect(ui->rf_gain, SIGNAL(valueChanged(int)), this, SLOT(set_rfg(int)));
+//connect(ui->af_gain, SIGNAL(valueChanged(int)), this, SLOT(set_afg(int)));
 
 //connect(ui->mir_gr, SIGNAL(valueChanged(int)), this, SLOT(set_mir_gr(int)));
 
@@ -94,7 +99,7 @@ fft_timer = new QTimer(this);
 connect(fft_timer, SIGNAL(timeout()), this, SLOT(show_enable()));
 fft_timer->start(50); //milli secs
 
-ui->Bar->setValue(128); // = 128;
+//ui->Bar->setValue(128); // = 128;
 }
 
 //---
@@ -123,6 +128,7 @@ ui->alpha_plotter->setCenterFreq(send_cf);
 radio_rx.update_radio_cf(send_cf);
 }
 
+/*
 void MainWindow::set_rfg(int gain)
 {
 radio_rx.update_radio_rfg(gain);
@@ -172,19 +178,21 @@ void MainWindow::set_bbg(int gain)
 {
 radio_rx.update_radio_bbg(gain);
 }
+*/
 
 
 
 
+void MainWindow::set_wf0(){ radio_rx.update_wf(0);}
+void MainWindow::set_wf1(){ radio_rx.update_wf(1);}
+void MainWindow::set_wf2(){ radio_rx.update_wf(2);}
+void MainWindow::set_wf3(){ radio_rx.update_wf(3);}
+void MainWindow::set_wf4(){ radio_rx.update_wf(4);}
 
 
 
 
-
-
-
-
-
+/*
 void MainWindow::set_sr0(){ radio_rx.update_radio_sr(0);}
 void MainWindow::set_sr1(){ radio_rx.update_radio_sr(1);}
 void MainWindow::set_sr2(){ radio_rx.update_radio_sr(2);}
@@ -200,7 +208,9 @@ void MainWindow::set_ar3(){ radio_rx.update_radio_ar(3);}
 void MainWindow::set_dsb(){ radio_rx.update_radio_demod(1);}
 void MainWindow::set_usb(){ radio_rx.update_radio_demod(2);}
 void MainWindow::set_lsb(){ radio_rx.update_radio_demod(3);}
+*/
 
+/*
 void MainWindow::set_src16p1()
 {
 radio_rx.update_radio_chan(1); 
@@ -226,7 +236,7 @@ void MainWindow::set_srcRSP1a()
 radio_rx.update_radio_chan(5);
 }
 
-
+*/
 //---
 
 void MainWindow::show_enable() // displays stream data

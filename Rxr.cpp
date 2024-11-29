@@ -205,7 +205,12 @@ socket->writeDatagram((char*)buffer.data(),buffer.size()*sizeof(int),QHostAddres
 printf("Base-Band gain: %d\n",val);
 }
 
-
+void Rxr::update_wf(int val)
+{
+ 
+printf(" Update WF %d \n"); 
+    
+}    
 
 
 

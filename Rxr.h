@@ -44,7 +44,7 @@ void update_radio_lna(int);
 void update_radio_iqg(int);
 void update_radio_ucg(int);
 void update_radio_bbg(int);
-
+void update_wf(int);
 
 
 public slots:    

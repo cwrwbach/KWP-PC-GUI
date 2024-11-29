@@ -35,7 +35,7 @@
       <x>9</x>
       <y>9</y>
       <width>1261</width>
-      <height>501</height>
+      <height>581</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -72,10 +72,10 @@
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>530</y>
-      <width>1247</width>
-      <height>121</height>
+      <x>260</x>
+      <y>600</y>
+      <width>881</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -90,7 +90,7 @@
        <x>20</x>
        <y>10</y>
        <width>83</width>
-       <height>61</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
@@ -103,7 +103,7 @@
        <x>130</x>
        <y>10</y>
        <width>351</width>
-       <height>61</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -111,86 +111,15 @@
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>800</x>
-       <y>10</y>
-       <width>64</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>AF Gain</string>
-     </property>
-    </widget>
-    <widget class="QSlider" name="af_gain">
-     <property name="geometry">
-      <rect>
-       <x>780</x>
-       <y>20</y>
-       <width>160</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>820</x>
-       <y>30</y>
-       <width>64</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>RF Gain</string>
-     </property>
-    </widget>
-    <widget class="QProgressBar" name="Bar">
-     <property name="geometry">
-      <rect>
-       <x>1040</x>
-       <y>0</y>
-       <width>191</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>80</number>
-     </property>
-     <property name="value">
-      <number>28</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QSlider" name="rf_gain">
-     <property name="geometry">
-      <rect>
-       <x>800</x>
-       <y>40</y>
-       <width>160</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
     <widget class="QFrame" name="frame_6">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>600</x>
        <y>10</y>
-       <width>271</width>
-       <height>51</height>
+       <width>221</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -199,53 +128,92 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QRadioButton" name="dsb">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>20</y>
-        <width>106</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>AM</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="lsb">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>20</y>
-        <width>106</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>LSB</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="usb">
+     <widget class="QRadioButton" name="wf0">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>20</y>
-        <width>106</width>
+        <y>10</y>
+        <width>41</width>
         <height>23</height>
        </rect>
       </property>
       <property name="text">
-       <string>USB</string>
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="wf1">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>10</y>
+        <width>41</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="wf2">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>10</y>
+        <width>41</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="wf0_4">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>40</y>
+        <width>41</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="wf3">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>10</y>
+        <width>41</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="wf4">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>10</y>
+        <width>41</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>4</string>
       </property>
      </widget>
     </widget>
     <widget class="QSpinBox" name="BBG">
      <property name="geometry">
       <rect>
-       <x>980</x>
-       <y>0</y>
-       <width>51</width>
-       <height>26</height>
+       <x>510</x>
+       <y>10</y>
+       <width>61</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="maximum">
