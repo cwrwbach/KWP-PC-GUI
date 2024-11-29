@@ -87,10 +87,10 @@ void set_uc1(bool);
 void set_uc2(bool);
 void set_uc3(bool);
 
-
-
-void set_bbg(int);
 */
+
+void set_zoom(int);
+
 
 
 };

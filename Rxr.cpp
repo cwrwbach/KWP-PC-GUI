@@ -140,16 +140,18 @@ freq = (int)floor(freq*(1.0 + ppm_factor *1.0e-6) + 0.5);
 buffer[FREQ]=(int) freq;
 socket->writeDatagram((char*)buffer.data(),buffer.size()*sizeof(int),QHostAddress(serv_addr),11366);
 }	
-
+/*
 void Rxr::update_radio_demod(int val)
 {
 printf("Demod %d\n",val);
 buffer[DMOD]= val;
 socket->writeDatagram((char*)buffer.data(),buffer.size()*sizeof(int),QHostAddress(serv_addr),11366);
 }
-
+*/
 
 void Rxr::start_server_stream(){};
+
+/*
 void Rxr::update_radio_sr(int){};
 void Rxr::update_radio_ar(int){};
 
@@ -197,19 +199,35 @@ buffer[MIX_GAIN]= val;
 socket->writeDatagram((char*)buffer.data(),buffer.size()*sizeof(int),QHostAddress(serv_addr),11366);
 printf("UP Conv gain%d\n",val);
 }
+*/
 
-void Rxr::update_radio_bbg(int val)
+void Rxr::update_zoom(int val)
 {
-buffer[BB_GAIN]= val;
-socket->writeDatagram((char*)buffer.data(),buffer.size()*sizeof(int),QHostAddress(serv_addr),11366);
-printf("Base-Band gain: %d\n",val);
+char msg_buf[32];
+int len;
+
+sprintf(msg_buf,"SET zoom=%d cf=15000",val);
+len = strlen(msg_buf);
+
+printf (" LEN = %d \n",len);
+
+socket->writeDatagram((char*)msg_buf,len,QHostAddress(serv_addr),11366);
+
+//socket->writeDatagram((char*)buffer.data(),buffer.size()*sizeof(int),QHostAddress(serv_addr),11366);
+printf("Zoom value: %d ::: %s\n",val,msg_buf);
 }
 
 void Rxr::update_wf(int val)
 {
- 
-printf(" Update WF %d \n"); 
-    
+char msg_buf[32];
+
+sprintf(msg_buf,"SET wf_speed=%d",val);
+
+//socket->writeDatagram((char*)buffer.data(),buffer.size()*sizeof(int),QHostAddress(serv_addr),11366);
+
+socket->writeDatagram((char*)msg_buf,14,QHostAddress(serv_addr),11366);
+
+printf(" Update WF %d ::: %s \n",val,msg_buf); 
 }    
 
 

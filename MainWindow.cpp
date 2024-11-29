@@ -74,9 +74,9 @@ connect(ui->UC0, SIGNAL(clicked(bool )), this, SLOT(set_uc0(bool)));
 connect(ui->UC1, SIGNAL(clicked(bool )), this, SLOT(set_uc1(bool)));
 connect(ui->UC2, SIGNAL(clicked(bool )), this, SLOT(set_uc2(bool)));
 connect(ui->UC3, SIGNAL(clicked(bool )), this, SLOT(set_uc3(bool)));
-
-connect(ui->BBG, SIGNAL(valueChanged(int)), this, SLOT(set_bbg(int)));
 */
+
+connect(ui->zoom, SIGNAL(valueChanged(int)), this, SLOT(set_zoom(int)));
 
 
 //connect(ui->ip0, SIGNAL(clicked()), this, SLOT(set_ip0()));
@@ -173,12 +173,12 @@ void MainWindow::set_uc3(bool chk)
 int val= 0x03;
 radio_rx.update_radio_ucg(val);
 }
-
-void MainWindow::set_bbg(int gain)
-{
-radio_rx.update_radio_bbg(gain);
-}
 */
+void MainWindow::set_zoom(int zoom_val)
+{
+radio_rx.update_zoom(zoom_val);
+}
+
 
 
 

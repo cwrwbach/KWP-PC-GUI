@@ -31,11 +31,13 @@ class Rxr : public QObject
     char alsa_device[64];
 
 public:
+
     void setup_socket();
     void sendgram();
+/*
     void update_radio_demod(int);
     void update_radio_chan(int);
-    void update_radio_cf(int);
+    
     void update_radio_sr(int);
     void update_radio_ar(int);
     void update_radio_rfg(int);
@@ -44,8 +46,10 @@ void update_radio_lna(int);
 void update_radio_iqg(int);
 void update_radio_ucg(int);
 void update_radio_bbg(int);
+*/
+void update_radio_cf(int);
 void update_wf(int);
-
+void update_zoom(int);
 
 public slots:    
     void processPendingDatagrams();

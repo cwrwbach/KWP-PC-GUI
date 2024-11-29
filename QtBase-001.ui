@@ -207,7 +207,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QSpinBox" name="BBG">
+    <widget class="QSpinBox" name="zoom">
      <property name="geometry">
       <rect>
        <x>510</x>
@@ -217,7 +217,7 @@
       </rect>
      </property>
      <property name="maximum">
-      <number>63</number>
+      <number>14</number>
      </property>
     </widget>
    </widget>
