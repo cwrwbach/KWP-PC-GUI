@@ -20,8 +20,6 @@ extern int fft_video_buf[];
 int status[32]; //FIXME
 Rxr radio_rx;
 
-//---
-
 MainWindow::MainWindow(const QString cfgfile, QWidget *parent) :
     QMainWindow(parent),    ui(new Ui::MainWindow)
 {
@@ -44,65 +42,12 @@ connect(ui->wf2, SIGNAL(clicked()), this, SLOT(set_wf2()));
 connect(ui->wf3, SIGNAL(clicked()), this, SLOT(set_wf3()));
 connect(ui->wf4, SIGNAL(clicked()), this, SLOT(set_wf4()));
 
-//connect(ui->usb, SIGNAL(clicked()), this, SLOT(set_usb()));
-//connect(ui->lsb, SIGNAL(clicked()), this, SLOT(set_lsb()));
-
-/*
-connect(ui->sr0, SIGNAL(clicked()), this, SLOT(set_sr0()));
-connect(ui->sr1, SIGNAL(clicked()), this, SLOT(set_sr1()));
-connect(ui->sr2, SIGNAL(clicked()), this, SLOT(set_sr2()));
-connect(ui->sr3, SIGNAL(clicked()), this, SLOT(set_sr3()));
-connect(ui->sr4, SIGNAL(clicked()), this, SLOT(set_sr4()));
-connect(ui->sr5, SIGNAL(clicked()), this, SLOT(set_sr5()));
-*/
-/*
-connect(ui->ar0, SIGNAL(clicked()), this, SLOT(set_ar0()));
-connect(ui->ar1, SIGNAL(clicked()), this, SLOT(set_ar1()));
-connect(ui->ar2, SIGNAL(clicked()), this, SLOT(set_ar2()));
-connect(ui->ar3, SIGNAL(clicked()), this, SLOT(set_ar3()));
-
-connect(ui->src16p1, SIGNAL(clicked()), this, SLOT(set_src16p1()));
-connect(ui->src16p2, SIGNAL(clicked()), this, SLOT(set_src16p2()));
-connect(ui->src14p1, SIGNAL(clicked()), this, SLOT(set_src14p1()));
-connect(ui->src14p2, SIGNAL(clicked()), this, SLOT(set_src14p2()));
-connect(ui->srcRSP1a, SIGNAL(clicked()), this, SLOT(set_srcRSP1a()));
-
-
-connect(ui->LNA, SIGNAL(clicked(bool )), this, SLOT(set_lna(bool)));
-connect(ui->IQG, SIGNAL(clicked(bool )), this, SLOT(set_iqg(bool)));
-connect(ui->UC0, SIGNAL(clicked(bool )), this, SLOT(set_uc0(bool)));
-connect(ui->UC1, SIGNAL(clicked(bool )), this, SLOT(set_uc1(bool)));
-connect(ui->UC2, SIGNAL(clicked(bool )), this, SLOT(set_uc2(bool)));
-connect(ui->UC3, SIGNAL(clicked(bool )), this, SLOT(set_uc3(bool)));
-*/
-
 connect(ui->zoom, SIGNAL(valueChanged(int)), this, SLOT(set_zoom(int)));
-
-
-//connect(ui->ip0, SIGNAL(clicked()), this, SLOT(set_ip0()));
-//connect(ui->ip1, SIGNAL(clicked()), this, SLOT(set_ip1()));
-//connect(ui->ip2, SIGNAL(clicked()), this, SLOT(set_ip2()));
-//connect(ui->ip3, SIGNAL(clicked()), this, SLOT(set_ip3()));
-//connect(ui->ip4, SIGNAL(clicked()), this, SLOT(set_ip4()));
-//connect(ui->ip5, SIGNAL(clicked()), this, SLOT(set_ip5()));
-
-//connect(ui->rf_gain, SIGNAL(valueChanged(int)), this, SLOT(set_rfg(int)));
-//connect(ui->af_gain, SIGNAL(valueChanged(int)), this, SLOT(set_afg(int)));
-
-//connect(ui->mir_gr, SIGNAL(valueChanged(int)), this, SLOT(set_mir_gr(int)));
-
-//connect(ui->mir_dab_notch, SIGNAL(stateChanged(int)), this, SLOT(set_mir_dab_n(int)));
-//connect(ui->mir_bc_notch, SIGNAL(stateChanged(int)), this, SLOT(set_mir_bc_n(int)));
-//connect(ui->mir_lna, SIGNAL(stateChanged(int)), this, SLOT(set_mir_lna(int)));
 
 fft_timer = new QTimer(this);
 connect(fft_timer, SIGNAL(timeout()), this, SLOT(show_enable()));
 fft_timer->start(50); //milli secs
-
-//ui->Bar->setValue(128); // = 128;
 }
-
-//---
 
 MainWindow::~MainWindow()
 {
@@ -110,8 +55,6 @@ fft_timer->stop();
 delete fft_timer;
 delete ui;
 }
-
-//---
 
 void MainWindow::hardware_setup()
 {
@@ -128,149 +71,27 @@ ui->alpha_plotter->setCenterFreq(send_cf);
 radio_rx.update_radio_cf(send_cf);
 }
 
-/*
-void MainWindow::set_rfg(int gain)
-{
-radio_rx.update_radio_rfg(gain);
-}
-
-void MainWindow::set_afg(int gain)
-{
-radio_rx.update_radio_afg(gain);
-}
-
-//---- msi 001 -->>
-void MainWindow::set_lna(bool chk)
-{
-radio_rx.update_radio_lna(chk);
-}
-
-void MainWindow::set_iqg(bool chk)
-{
-radio_rx.update_radio_iqg(chk);
-}
-
-void MainWindow::set_uc0(bool chk)
-{
-int val = 0x00;
-radio_rx.update_radio_ucg(val);
-}
-
-void MainWindow::set_uc1(bool chk)
-{
-int val= 0x01;
-radio_rx.update_radio_ucg(val);
-}
-
-void MainWindow::set_uc2(bool chk)
-{
-int val = 0x02;
-radio_rx.update_radio_ucg(val);
-}
-
-void MainWindow::set_uc3(bool chk)
-{
-int val= 0x03;
-radio_rx.update_radio_ucg(val);
-}
-*/
 void MainWindow::set_zoom(int zoom_val)
 {
 radio_rx.update_zoom(zoom_val);
 }
 
-
-
-
-
-void MainWindow::set_wf0(){ radio_rx.update_wf(0);}
-void MainWindow::set_wf1(){ radio_rx.update_wf(1);}
-void MainWindow::set_wf2(){ radio_rx.update_wf(2);}
-void MainWindow::set_wf3(){ radio_rx.update_wf(3);}
-void MainWindow::set_wf4(){ radio_rx.update_wf(4);}
-
-
-
-
-/*
-void MainWindow::set_sr0(){ radio_rx.update_radio_sr(0);}
-void MainWindow::set_sr1(){ radio_rx.update_radio_sr(1);}
-void MainWindow::set_sr2(){ radio_rx.update_radio_sr(2);}
-void MainWindow::set_sr3(){ radio_rx.update_radio_sr(3);}
-void MainWindow::set_sr4(){ radio_rx.update_radio_sr(4);}
-void MainWindow::set_sr5(){ radio_rx.update_radio_sr(5);}
-
-void MainWindow::set_ar0(){ radio_rx.update_radio_ar(0);}
-void MainWindow::set_ar1(){ radio_rx.update_radio_ar(1);}
-void MainWindow::set_ar2(){ radio_rx.update_radio_ar(2);}
-void MainWindow::set_ar3(){ radio_rx.update_radio_ar(3);}
-
-void MainWindow::set_dsb(){ radio_rx.update_radio_demod(1);}
-void MainWindow::set_usb(){ radio_rx.update_radio_demod(2);}
-void MainWindow::set_lsb(){ radio_rx.update_radio_demod(3);}
-*/
-
-/*
-void MainWindow::set_src16p1()
-{
-radio_rx.update_radio_chan(1); 
-}
-
-void MainWindow::set_src16p2()
-{
-radio_rx.update_radio_chan(2); 
-}
-
-void MainWindow::set_src14p1()
-{
-radio_rx.update_radio_chan(3); 
-}
-
-void MainWindow::set_src14p2()
-{
-radio_rx.update_radio_chan(4);
-}
-
-void MainWindow::set_srcRSP1a()
-{
-radio_rx.update_radio_chan(5);
-}
-
-*/
-//---
+void MainWindow::set_wf0()
+    { radio_rx.update_wf(0);}
+void MainWindow::set_wf1()
+    { radio_rx.update_wf(1);}
+void MainWindow::set_wf2()
+    { radio_rx.update_wf(2);}
+void MainWindow::set_wf3()
+    { radio_rx.update_wf(3);}
+void MainWindow::set_wf4()
+    { radio_rx.update_wf(4);}
 
 void MainWindow::show_enable() // displays stream data
 {
-//char str_1[20];
-//char str_2[20];
-//char str_3[20];
-//char str_4[20];
-//char str_5[20];
-//char str_6[20];
-
-//printf(" Show_enable %d \n",bug2++);
-
 if(stream_flag ==true)
     {
     stream_flag=false;
-/*
-    sprintf(str_1,"Test 1: %d ",status[1]);
-    sprintf(str_2,"Test 2: %d ",status[2]);
-    sprintf(str_3,"Test 3: %d ",status[3]);
-    sprintf(str_4,"Test 4: %d ",status[4]);
-    sprintf(str_5,"Test 5: %d ",status[5]);
-    sprintf(str_6,"Test 5: %d ",status[6]);
-
-    ui->stat_1->setText(str_1);
-    ui->stat_2->setText(str_2);
-    ui->stat_3->setText(str_3);
-    ui->stat_4->setText(str_4);
-    ui->stat_5->setText(str_5);
-    ui->stat_6->setText(str_6);
-*/
     ui->alpha_plotter->draw_trace(fft_video_buf,0,1024); //(left,Num points)
- //   printf(" After drawtrace %d\n",bug3++);
     }
 }
-
-
