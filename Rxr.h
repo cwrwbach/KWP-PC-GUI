@@ -19,7 +19,7 @@ class Rxr : public QObject
     char alsa_device[64];
 
 public:
-
+    int setup_kiwi();
     void setup_socket();
     void sendgram();
 
